@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, #f1f2f4, #cbcfd3);
+}
+
+header div img {
+    max-width: 100px;
+    max-height:  100px;
+}
+form{
+    width: 75vw;
+}
+.customFile::-webkit-file-upload-button{
+    background-color: rgb(220, 231, 15);
+}
