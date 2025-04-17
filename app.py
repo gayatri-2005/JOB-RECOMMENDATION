@@ -13,13 +13,16 @@ ALLOWED_EXTENSIONS = {'pdf', 'docx'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# @app.route("/")
+# def main():
+#     render_template('index.html')
 @app.route("/", methods=["GET", "POST"])
 def upload_resume():
     if request.method == "POST":
         file = request.files.get("resume")
         if not file or file.filename == "":
             flash("Please upload a file.")
-            return redirect(request.url)
+            return redirect(request.url) # to redirect to same page 
 
         if allowed_file(file.filename):
             filename = secure_filename(file.filename)
@@ -34,6 +37,7 @@ def upload_resume():
                 "QA Engineer", "UI/UX Designer", "Android Developer"
             ]
             return render_template("results.html", job_roles=job_roles)
+        
         else:
             flash("Unsupported file type. Please upload PDF or DOCX.")
             return redirect(request.url)
