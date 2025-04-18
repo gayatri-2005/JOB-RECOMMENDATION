@@ -9,7 +9,7 @@
     <meta property="og:type" content="website" />
 
     <!--Website Icon-->
-    <link rel="shortcut icon" href="{{url_for('static',filename='images/skillApply2.svg')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/logo.svg')}}">
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
 
 </head>
 <body>
-    <header class="d-flex align-items-center justify-content-center">
+    <header class="d-flex align-items-center justify-content-center border-bottom border-2 mb-5">
         <div class="p-3">
             <img src="/static/images/originalAplly.png" alt="Smart Apply Logo">
         </div>
@@ -36,19 +36,26 @@
 
     <main>
         <section class="dataAboutwebsite">
-            <p class="text-center mt-3">
-                <span class="fw-bold">Find Your Dream Job with AI-Powered Recommendations</span> 
-                <span>
-                    <p  class="ps-5 pe-5">
-                        Take the guesswork out of your job search. Our intelligent platform carefully analyzes your resume to understand your unique skills, professional experience, and long-term career aspirations. Using advanced algorithms and AI-driven insights, we match you with job opportunities that align perfectly with your profile.
-                        All you have to do is upload your resume — our system takes care of the rest, delivering personalized job recommendations designed to accelerate your career path. 
-                    </p>
-                </span>
-            </p>
+                <div class="text-center mt-2">
+                    <span class="fw-bold fs-3 ">Find Your Dream Job with AI-Powered Recommendations</span> 
+                </div>
+                
+                <div class="d-flex justify-content-center align-items-center mt-3 main-content-2">
+                    <div>
+                        <img src="/static/images/promo2.png"  style="max-width: 550px;">
+                    </div>
+                    <br>
+                    <div>
+                        <p  class="ps-5 pe-5">
+                            Take the guesswork out of your job search. Our intelligent platform carefully analyzes your resume to understand your unique skills, professional experience, and long-term career aspirations. Using advanced algorithms and AI-driven insights, we match you with job opportunities that align perfectly with your profile.
+                            All you have to do is upload your resume — our system takes care of the rest, delivering personalized job recommendations designed to accelerate your career path. 
+                        </p>
+                    </div>      
+            </div>
         </section>
 
-        
-        <section class="uploadSection d-flex align-items-center justify-content-center mt-3">
+        <hr>
+        <section class="uploadSection d-flex align-items-center justify-content-center m-5">
             <form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white rounded rounded-2">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -56,7 +63,7 @@
                     {% endif %}
                 {% endwith %}
             
-                <h3 class="fw-bold text-dark">Upload Your Resume</h3>
+                <h3 class="fw-bold text-dark">Upload Your Resume/CV</h3>
                 <p class="text-muted">Supported formats: <span class="text-success-emphasis fw-bold">.doc , .docx and .pdf</span>.</p>  
                 <input type="file" class="form-control customFile" name="resume" accept=".pdf, .doc, .docx" required>
                 <br>              
@@ -64,8 +71,21 @@
             </form>
         </section>
         <hr>
-
-
 </main>
+
+<footer class="d-flex align-items-center justify-content-around bg-dark text-white p-2">
+    <div>
+        &copy; CopyRights Reserved.
+    </div>
+    <div class="m-2">
+        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-linkedin m-2"></span></a>
+        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-x m-2"></span></a>
+        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-instagram m-2"></span></a>
+        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-discord m-2"></span></a>
+    </div>
+    
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
