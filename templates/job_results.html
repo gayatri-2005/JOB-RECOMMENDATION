@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Job Listings</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(to right, #b4ccf1, #b7dcf3);
-        }
-        h2 {
-            color: #100505;
-        }
-        .card {
-            border-radius: 1rem;
-            transition: 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} Smart Apply Result {% endblock %}
+
+{% block content %}
     <div class="container py-5">
         <h2 class="text-center mb-4">Job Listings Based on Your Preferences</h2>
-
         <div class="row row-cols-1 row-cols-md-2 g-4">
             {% for job in listings %}
             <div class="col">
@@ -41,5 +21,4 @@
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

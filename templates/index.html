@@ -1,91 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
 
-    <!--This is important when we going to share the website (og property)-->
-    <meta property="og:title" content="Smart Apply" />
-    <meta property="og:description" content="Discover the perfect job for you with our resume-based job recommendation platform. We analyze your skills, experience, and preferences to match you with the best opportunities tailored to your career goals." />
-    <meta property="og:type" content="website" />
+{% block title %} Smart Apply {% endblock %}
 
-    <!--Website Icon-->
-    <link rel="shortcut icon" href="{{url_for('static',filename='images/logo.svg')}}">
+{% block content %}
 
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Smart Apply</title>
-
-    <!--Bootstrap Linking-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!--CSS Linking-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-</head>
-<body>
-    <header class="d-flex align-items-center justify-content-center border-bottom border-2 mb-5">
-        <div class="p-3">
-            <img src="/static/images/originalAplly.png" alt="Smart Apply Logo">
-        </div>
-        <div class="p-3">
-            <h1 class="fw-bold flex-lg-shrink-1">Smart Apply</h1>
-        </div>
-    </header>
-
-
-    <main>
-        <section class="dataAboutwebsite">
-                <div class="text-center mt-2">
-                    <span class="fw-bold fs-3 ">Find Your Dream Job with AI-Powered Recommendations</span> 
-                </div>
-                
-                <div class="d-flex justify-content-center align-items-center mt-3 main-content-2">
-                    <div>
-                        <img src="/static/images/promo2.png"  style="max-width: 550px;">
-                    </div>
-                    <br>
-                    <div>
-                        <p  class="ps-5 pe-5">
-                            Take the guesswork out of your job search. Our intelligent platform carefully analyzes your resume to understand your unique skills, professional experience, and long-term career aspirations. Using advanced algorithms and AI-driven insights, we match you with job opportunities that align perfectly with your profile.
-                            All you have to do is upload your resume — our system takes care of the rest, delivering personalized job recommendations designed to accelerate your career path. 
-                        </p>
-                    </div>      
-            </div>
-        </section>
-
-        <hr>
-        <section class="uploadSection d-flex align-items-center justify-content-center m-5">
-            <form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white rounded rounded-2">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <div class="alert alert-danger">{{ messages[0] }}</div>
-                    {% endif %}
-                {% endwith %}
-            
-                <h3 class="fw-bold text-dark">Upload Your Resume/CV</h3>
-                <p class="text-muted">Supported formats: <span class="text-success-emphasis fw-bold">.doc , .docx and .pdf</span>.</p>  
-                <input type="file" class="form-control customFile" name="resume" accept=".pdf, .doc, .docx" required>
-                <br>              
-                <button type="submit" class="btn btn-danger">Upload Resume</button>
-            </form>
-        </section>
-        <hr>
-</main>
-
-<footer class="d-flex align-items-center justify-content-around bg-dark text-white p-2">
-    <div>
-        &copy; CopyRights Reserved.
-    </div>
-    <div class="m-2">
-        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-linkedin m-2"></span></a>
-        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-x m-2"></span></a>
-        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-instagram m-2"></span></a>
-        <a href="javascript:void()" class="rounded roundeed-1 text-white"><span class="bi-discord m-2"></span></a>
+<section class="dataAboutwebsite">
+    <div class="text-center mt-2">
+        <span class="fw-bold fs-3 ">Find Your Dream Job with AI-Powered Recommendations</span> 
     </div>
     
-</footer>
+    <div class="d-flex justify-content-center align-items-center mt-3 main-content-2">
+        <div>
+            <img src="/static/images/promo2.png"  style="max-width: 550px;">
+        </div>
+        <br>
+        <div>
+            <p  class="ps-5 pe-5">
+                Take the guesswork out of your job search. Our intelligent platform carefully analyzes your resume to understand your unique skills, professional experience, and long-term career aspirations. Using advanced algorithms and AI-driven insights, we match you with job opportunities that align perfectly with your profile.
+                All you have to do is upload your resume — our system takes care of the rest, delivering personalized job recommendations designed to accelerate your career path. 
+            </p>
+        </div>      
+</div>
+</section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<hr>
+<section class="uploadSection d-flex align-items-center justify-content-center m-5">
+    <form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white rounded rounded-2">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+    
+        <h3 class="fw-bold text-dark">Upload Your Resume/CV</h3>
+        <p class="text-muted">Supported formats: <span class="text-success-emphasis fw-bold">.doc , .docx and .pdf</span>.</p>  
+        <input type="file" class="form-control customFile" name="resume" accept=".pdf, .doc, .docx" required>
+        <br>              
+        <button type="submit" class="btn btn-danger">Upload Resume</button>
+    </form>
+</section>
+<hr>
+
+{% endblock %}
