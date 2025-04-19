@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Select Job Roles</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(to right, #f0f2f5, #e4ecf1);
-        }
-        h2 {
-            color: #0d6efd;
-        }
-        .card {
-            border-radius: 1rem;
-            transition: 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container py-5">
-        <h2 class="text-center mb-4">Select Job Roles</h2>
+{% extends 'base.html' %}
 
+{% block title %} Smart Apply {% endblock %}
+
+{% block content %}
+
+    <div class="container py-5 ps-lg-5 ">
+        <h2 class="text-center mb-4">Select Job Roles</h2>
         <form action="/submit-jobs" method="POST">
             <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
                 {% for role in job_roles %}
@@ -68,5 +49,5 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+
+{% endblock %}
